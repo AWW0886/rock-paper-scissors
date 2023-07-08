@@ -1,9 +1,10 @@
 //const rpsChoice = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
+//const buttons = document.querySelectorAll('button');
 
 function game() {
-    for (let i = 0; i < 5; i++) {
+    //for (let i = 0; i < 5; i++) {
 
     function getComputerChoice() {
         if (playerChoice === "fire") {
@@ -39,15 +40,30 @@ function game() {
         } 
     }
 
-    const playerChoice = prompt().toLowerCase();
-    const computerChoice = getComputerChoice();
+    //const playerChoice = prompt().toLowerCase();
+    //const computerChoice = getComputerChoice();
 
-    console.log(playerChoice);  
-    console.log(computerChoice);   
-    console.log(playRound(playerChoice, computerChoice));
-    console.log(playerScore);
-    console.log(computerScore);
-    }
+    //console.log(playerChoice);  
+    //console.log(computerChoice);   
+    //console.log(playRound(playerChoice, computerChoice));
+    //console.log(playerScore);
+    //console.log(computerScore);
+    //}
 }
 
-console.log(game());
+//console.log(game());
+
+const buttons = document.querySelectorAll('button');
+const btn = document.querySelector('#btn');
+
+buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        alert("Works!");
+    });
+});
+
+// Make buttons
+// Add event listeners to buttons
+// Increase score
+// Display score (add div)
+// End game when score === 5
