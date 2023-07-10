@@ -1,5 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
+let gameRound = 1;
 
 const buttons = document.querySelectorAll('button');
 
@@ -8,6 +9,9 @@ player.textContent = `Player Score: ${playerScore}`;
 
 const computer = document.querySelector('#computer-score');
 computer.textContent = `Computer Score: ${computerScore}`;
+
+const round = document.querySelector('#round');
+round.textContent = `Round: ${gameRound}`;
 
 const result = document.querySelector('#result');
 
@@ -21,7 +25,7 @@ function game() {
 
     function getComputerChoice() {
         if (playerChoice === 'fire') {
-            return rpsChoice = 'water balloon';   
+            return 'water balloon';   
         
         } else if (playerChoice === 'rock' || 'paper' || 'scissors') {
             let rpsChoice = ['rock', 'paper', 'scissors'];
@@ -33,6 +37,8 @@ function game() {
 
         if (playerChoice === computerChoice) {
             alert(`Tie! ${playerChoice} = ${computerChoice}`);
+            gameRound++;
+            round.textContent = `Round: ${gameRound}`;
         
         } else if (
             (playerChoice === 'rock' && computerChoice === 'scissors') ||
@@ -42,6 +48,8 @@ function game() {
             alert(`Winner! ${playerChoice} > ${computerChoice}`);
             playerScore++;
             player.textContent = `Player Score: ${playerScore}`;
+            gameRound++;
+            round.textContent = `Round: ${gameRound}`;
 
             if (playerScore === 5) {
                 alert("You win the game!");
@@ -55,6 +63,8 @@ function game() {
         ) {
             alert('Does it beat water balloon?')
             alert('"Aww... Well played, Phoebe Buffay!" -No points added!');
+            gameRound++;
+            round.textContent = `Round: ${gameRound}`;
 
             if (computerScore === 5) {
                 alert("You lose the game!");
@@ -67,6 +77,8 @@ function game() {
             alert(`LOSER! ${playerChoice} < ${computerChoice}`);
             computerScore++;
             computer.textContent = `Computer Score: ${computerScore}`;
+            gameRound++;
+            round.textContent = `Round: ${gameRound}`;
 
             if (computerScore === 5) { 
                 alert("You lose the game!");
