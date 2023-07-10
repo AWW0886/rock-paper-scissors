@@ -89,25 +89,13 @@ function game() {
         } 
     }
 
-    const computerChoice = getComputerChoice();
-  
-    console.log(computerChoice);   
-    console.log(playRound(playerChoice, computerChoice));
-    console.log(playerScore);
-    console.log(computerScore);
+    const computerChoice = getComputerChoice(); 
+    playRound(playerChoice, computerChoice);
 }
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playerChoice = button.id;
-        console.log(playerChoice);
         game(playerChoice);
     });
-});
-
-
-// Make buttons
-// Add event listeners to buttons
-// Increase score
-// Display score (add div)
-// End game function when score === 5
+})
