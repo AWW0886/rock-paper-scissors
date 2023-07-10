@@ -9,23 +9,19 @@ player.textContent = `Player Score: ${playerScore}`;
 const computer = document.querySelector('#computer-score');
 computer.textContent = `Computer Score: ${computerScore}`;
 
-const result = document.querySelector('result');
+const result = document.querySelector('#result');
 
 function disableButtons() {
     buttons.forEach((button) => {
         button.disabled = true;
     });
-    //document.getElementsByName('button').disabled = true;
 }
 
 function game() {
 
     function getComputerChoice() {
         if (playerChoice === 'fire') {
-            //let rpsChoice = ['rock', 'paper', 'scissors', 'water balloon'];
-            //return rpsChoice[Math.floor(Math.random() * rpsChoice.length)];
-            return rpsChoice = 'water balloon';
-            //return rpsChoice;    
+            return rpsChoice = 'water balloon';   
         
         } else if (playerChoice === 'rock' || 'paper' || 'scissors') {
             let rpsChoice = ['rock', 'paper', 'scissors'];
@@ -41,13 +37,11 @@ function game() {
         } else if (
             (playerChoice === 'rock' && computerChoice === 'scissors') ||
             (playerChoice === 'paper' && computerChoice === 'rock') ||
-            (playerChoice === 'scissors' && computerChoice === 'paper') //||
-            //(playerChoice === 'fire' && computerChoice !== 'water balloon')
+            (playerChoice === 'scissors' && computerChoice === 'paper')
         ) {
             alert(`Winner! ${playerChoice} > ${computerChoice}`);
             playerScore++;
             player.textContent = `Player Score: ${playerScore}`;
-
 
             if (playerScore === 5) {
                 alert("You win the game!");
@@ -61,8 +55,6 @@ function game() {
         ) {
             alert('Does it beat water balloon?')
             alert('"Aww... Well played, Phoebe Buffay!" -No points added!');
-            //computerScore++;
-            //computer.textContent = `Computer Score: ${computerScore}`;
 
             if (computerScore === 5) {
                 alert("You lose the game!");
