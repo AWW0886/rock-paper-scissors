@@ -1,7 +1,15 @@
 //const rpsChoice = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
-//const buttons = document.querySelectorAll('button');
+
+const buttons = document.querySelectorAll('button');
+//const btn = document.querySelector('button');
+
+const player = document.querySelector('#player-score');
+player.textContent = `Player Score: ${playerScore}`;
+
+const computer = document.querySelector('#computer-score');
+computer.textContent = `Computer Score: ${computerScore}`;
 
 function game() {
     //for (let i = 0; i < 5; i++) {
@@ -10,6 +18,7 @@ function game() {
         if (playerChoice === 'fire') {
             let rpsChoice = ['rock', 'paper', 'scissors', 'water balloon'];
             return rpsChoice[Math.floor(Math.random() * rpsChoice.length)];    
+        
         } else if (playerChoice === 'rock' || 'paper' || 'scissors') {
             let rpsChoice = ['rock', 'paper', 'scissors'];
             return rpsChoice[Math.floor(Math.random() * rpsChoice.length)];
@@ -18,28 +27,52 @@ function game() {
     //console.log(getComputerChoice());
 
     function playRound(playerChoice, computerChoice) {
+        //player.textContent = `Player Score: ${playerScore}`;
+        //computer.textContent = `Computer Score: ${computerScore}`;
+
         if (playerChoice === computerChoice) {
-            alert('Tie!');
-            alert(playerChoice + ' = ' + computerChoice);
+            alert(`Tie! ${playerChoice} = ${computerChoice}`);
+            //alert(playerChoice + ' = ' + computerChoice);
+        
         } else if (
             (playerChoice === 'rock' && computerChoice === 'scissors') ||
             (playerChoice === 'paper' && computerChoice === 'rock') ||
             (playerChoice === 'scissors' && computerChoice === 'paper') ||
             (playerChoice === 'fire' && computerChoice !== 'water balloon')
         ) {
-            alert('Winner!');
-            alert(playerChoice + ' > ' + computerChoice);
+            alert(`Winner! ${playerChoice} > ${computerChoice}`);
+            //alert(playerChoice + ' > ' + computerChoice);
             playerScore++;
+            player.textContent = `Player Score: ${playerScore}`;
+
+
+            if (playerScore === 5) {
+                alert("You win!");
+                player.textContent = `Player Score: ${playerScore}`;
+            }
+
         } else if (
             (playerChoice === 'fire' && computerChoice === 'water balloon')
         ) {
             alert('LOSER!');
             alert("Aww... Well played, Phoebe Buffay!");
             computerScore++;
+            computer.textContent = `Computer Score: ${computerScore}`;
+
+            if (computerScore === 5) {
+                alert("You lose!");
+                computer.textContent = `Computer Score: ${computerScore}`;
+            }
+            
         } else {
-            alert('LOSER!');
-            alert(playerChoice + ' < ' + computerChoice);
+            alert(`LOSER! ${playerChoice} < ${computerChoice}`);
             computerScore++;
+            computer.textContent = `Computer Score: ${computerScore}`;
+
+            if (computerScore === 5) {
+                alert("You lose!");
+                computer.textContent = `Computer Score: ${computerScore}`;  
+            }
         } 
     }
 
@@ -56,8 +89,8 @@ function game() {
 
 //console.log(game());
 
-const buttons = document.querySelectorAll('button');
-const btn = document.querySelector('button');
+//const buttons = document.querySelectorAll('button');
+//const btn = document.querySelector('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -66,6 +99,12 @@ buttons.forEach((button) => {
         game(playerChoice);
     });
 });
+
+//const player = document.querySelector('#player-score');
+//player.textContent = `Player Score: ${playerScore}`;
+
+//const computer = document.querySelector('#computer-score');
+//computer.textContent = `Computer Score: ${computerScore}`;
 
 
 // Make buttons
